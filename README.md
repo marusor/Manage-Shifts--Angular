@@ -18,24 +18,30 @@ Node.js: Backend server for handling requests and data storage.
 REST API: Communication between Angular frontend and Node.js backend.
 MongoDB: Database for storing shift and user information.
 Postman: Tool for testing and verifying API requests.
+
 Getting Started
+
 Clone the repository to your local machine:
 
 
 git clone https://github.com/your-username/manage-my-shifts.git
+
 Set up the Angular development environment:
 
 
 npm install -g @angular/cli
+
 Install the project dependencies:
 
 
 cd manage-my-shifts
 npm install
+
 Launch the application:
 
 
 ng serve
+
 Open your web browser and navigate to http://localhost:4200/ to access the app.
 
 Developer Roles
