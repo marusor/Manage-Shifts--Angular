@@ -1,0 +1,6 @@
+<div class="adminHomeNav">
+    <h2 *ngIf="(currentUserProfile$ | async) as user">Welcome, {{ user.fName }}!</h2>
+<button mat-button routerLink="/allshifts"><mat-icon>user-edit</mat-icon>All Shifts</button>
+<button mat-button routerLink="/allworkers"><mat-icon>user-edit</mat-icon>All workers</button>
+
+</div>

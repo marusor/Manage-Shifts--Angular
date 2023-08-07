@@ -1,0 +1,27 @@
+<button mat-button routerLink="/allshifts"><mat-icon>user-edit</mat-icon>All Shifts</button>
+<button mat-button routerLink="/adminhome"><mat-icon>user-edit</mat-icon>Back to admin Homepage</button>
+
+<div class="divAllWorkersTable"></div>
+<table  class="allWorkersTable ">
+    <thead>
+      <tr>
+        <th >Email</th>
+        <th>Password</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Edit Profile button</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Iterate through each worker in the Database collection -->
+      <tr *ngFor="let worker of workers">
+        <td><a [routerLink]="['/admineditprofile', worker.email]">{{worker.email}}</a></td>
+        <td>{{worker.password}}</td>
+        <td>{{worker.fName}}</td>
+        <td>{{worker.lName}}</td>
+        <td>{{worker.age}}</td>
+        <td><button  mat-button [routerLink]="['/admineditprofile', worker.email]">Edit Profile</button></td>
+      </tr>
+    </tbody>
+  </table>

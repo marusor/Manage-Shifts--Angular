@@ -1,0 +1,51 @@
+<div mat-card mat-card-content class="..elevation.." mat-card class="form-container mat-elevation-z5">
+    <h1>New User</h1>
+    <form [formGroup]="userRegistration" (ngSubmit)="submit()"> 
+        <mat-form-field>
+            <input matInput placeholder="First Name" formControlName="fName">
+            <mat-error *ngIf="fName?.errors?.['required']">First name is required</mat-error>
+            <mat-error *ngIf="fName?.errors?.['minlength']">First Name has to be at least 2 characters long</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Last Name" formControlName="lName">
+            <mat-error *ngIf="lName?.errors?.['required']">Last name is required</mat-error>
+            <mat-error *ngIf="lName?.errors?.['minlength']">Last Name has to be at least 2 characters long</mat-error>
+          </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Email adress" formControlName="email">
+          <mat-error *ngIf="email?.errors?.['required']">Email is required</mat-error>
+          <mat-error *ngIf="email?.errors?.['email']">Please use a valid email</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          <mat-error *ngIf="password?.errors?.['required']">Password is required</mat-error>
+          <mat-error *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+            <mat-error *ngIf="confirmPassword?.errors?.['required']">Password confirmation is required</mat-error>
+          </mat-form-field>
+          <mat-error *ngIf="userRegistration.errors?.['passwordsDontMatch']">Passwords should match</mat-error>
+
+          
+        
+          <mat-form-field>
+            <input matInput placeholder="Age" formControlName="age" type="number">
+            <mat-error *ngIf="age?.errors?.['required']">Your age is required</mat-error>
+            <mat-error *ngIf="age?.errors?.['min']">Must be older than 6</mat-error>
+            <mat-error *ngIf="age?.errors?.['max']">Must be younger than 130</mat-error>
+
+        </mat-form-field>
+
+      <div class="center margin-top">
+        <button mat-raised-button color="primary" type="submit">Register!</button>
+      
+      </div>
+   
+      </form>
+</div>

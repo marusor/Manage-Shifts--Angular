@@ -1,0 +1,54 @@
+<button mat-button routerLink="/adminhome"><mat-icon>user-edit</mat-icon>Back to admin Homepage</button>
+<button mat-button routerLink="/allworkers"><mat-icon>user-edit</mat-icon>All workers</button>
+
+<div
+  class="form-container mat-elevation-z5 text-center"
+ 
+>
+    <h1>Update User Profile</h1>
+    <form [formGroup]="userUpdateAdmin" (ngSubmit)="update()"> 
+        <mat-form-field>
+            <input matInput placeholder="First Name" formControlName="fName">
+            <mat-error *ngIf="fName?.errors?.['required']">First name is required</mat-error>
+            <mat-error *ngIf="fName?.errors?.['minlength']">First Name has to be at least 2 characters long</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Last Name" formControlName="lName">
+            <mat-error *ngIf="lName?.errors?.['required']">Last name is required</mat-error>
+            <mat-error *ngIf="lName?.errors?.['minlength']">Last Name has to be at least 2 characters long</mat-error>
+          </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Email adress" formControlName="email">
+          <mat-error *ngIf="email?.errors?.['required']">Email is required</mat-error>
+          <mat-error *ngIf="email?.errors?.['email']">Please use a valid email</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          <mat-error *ngIf="newPassword?.errors?.['required']">Password is required</mat-error>
+          <mat-error *ngIf="newPassword?.errors?.['minlength']">Password must be at least 6 characters long</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+            <mat-error *ngIf="confirmNewPassword?.errors?.['required']">Password confirmation is required</mat-error>
+          </mat-form-field>
+          <mat-error *ngIf="userUpdateAdmin.errors?.['passwordsDontMatch']">Passwords should match</mat-error>
+          <mat-form-field>
+            <input matInput placeholder="Age" formControlName="age" type="number">
+            <mat-error *ngIf="age?.errors?.['required']">Your age is required</mat-error>
+            <mat-error *ngIf="age?.errors?.['min']">Must be older than 6</mat-error>
+            <mat-error *ngIf="age?.errors?.['max']">Must be younger than 130</mat-error>
+
+        </mat-form-field>
+
+      <div class="center margin-top">
+        <button mat-raised-button color="primary" type="submit">Update Details!</button>
+      
+      </div>
+   
+      </form>
+</div> 

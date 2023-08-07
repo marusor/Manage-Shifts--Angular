@@ -1,0 +1,36 @@
+<button mat-button routerLink="/adminhome"><mat-icon>user-edit</mat-icon>Back to Admin Homepage</button>
+<button mat-button routerLink="/allworkers"><mat-icon>user-edit</mat-icon>All workers</button>
+
+<div class="searchFields">
+<input type="text" placeholder="Search by worker first name" [(ngModel)]="searchFName">
+<input type="text" placeholder="Search by work place" [(ngModel)]="searchPlace">
+<button mat-button  (click)="search()">Search</button>
+<button mat-button  (click)="reset()">Reset</button>
+</div>
+<table class="tableAllShifts">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Hourly Wage</th>
+        <th>Work Place</th>
+        <th>Total Profit</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shift of shifts | async">
+        <td>{{ shift.date }}</td>
+        <td>{{ shift.startTime }}</td>
+        <td>{{ shift.endTime }}</td>
+        <td>{{ shift.fName }}</td>
+        <td>{{ shift.lName }}</td>
+        <td>{{ shift.hourlyWage }}</td>
+        <td>{{ shift.workplace }}</td>
+        <td>{{ shift.totalProfit }}</td>
+      </tr>
+    </tbody>
+  </table>
